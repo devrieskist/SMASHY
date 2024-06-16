@@ -13,7 +13,7 @@ For further info on the project click here:
 
 For the android app 
 [Kivy](https://kivy.org/)
- has been used which is an open-source python framework. 
+ has been used which is an open-source python framework. Install this first before using. After this run main.py.
  
  [jnius](https://pyjnius.readthedocs.io/en/latest/index.html) has been used to use the Java classes for android.
  
