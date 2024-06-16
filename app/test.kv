@@ -1,0 +1,171 @@
+#:kivy 1.0
+
+<NFCScreen>:
+    nfc_status : nfc_status
+    GridLayout:
+        size: root.size
+        cols:1
+        canvas.before:
+            Color: 
+                rgb: [66/255, 66/255, 66/255, 1]
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            size_hint_y: 0.5
+            id: nfc_status
+            padding_x: self.width/10
+            text: "Place your Phone\non the NFC Chip"
+            text_size: self.size
+            font_size: root.width/10
+        Image:
+            source: 'nfc_icon.png'
+
+<LoginScreen>:
+    username: username
+    GridLayout:
+        size: root.size
+        cols:1
+        canvas.before:
+            Color: 
+                rgb: [66/255, 66/255, 66/255, 1]
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        padding: root.width/10
+        spacing: root.height/80
+        Label:
+            size_hint_y: 0.3
+        GridLayout:
+            size_hint_y: 1
+            cols: 1
+            spacing: root.height/30
+
+            Label:
+                padding_x: self.width/10
+                text: "Type in your\n Username"
+                text_size: self.size
+                font_size: root.width/10
+
+            TextInput:
+                id: username
+                size_hint_y: 0.35
+                background_color: [0, 0, 0, 0]
+                font_size: root.width/13
+                foreground_color: (1, 1, 1, 1)
+                hint_text: "YOUR NAME"
+                multiline: False
+                canvas.after:
+                    Color:
+                        rgba:(160/225, 160/225, 160/225, 1)
+                    Line:
+                        width: 1
+                        rectangle: (self.pos[0]-root.width/40, self.pos[1] , self.size[0]+root.width/40, 1)
+            Button:
+                size_hint_y: 0.5
+                size: self.size
+                id: sign_up
+                font_size: root.width/20
+                text: "Register"
+                on_press:root.log_name()
+        Label:
+            size_hint_y: 0.8
+
+<HighscoreScreen>:
+    GridLayout:
+        size: root.size
+        cols:1
+        padding: root.width/10
+        spacing: root.height/80
+        canvas.before:
+            Color: 
+                rgb: [66/255, 66/255, 66/255, 1]
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        ScoreGrid:
+            size_hint_y: 0.2
+            cols:1
+            canvas.after:
+                Color:
+                    rgba:(160/225, 160/225, 160/225, 1)
+                Line:
+                    width: 1
+                    rectangle: (self.pos[0], self.pos[1], self.size[0], self.size[1])
+            BorderedLabel:
+                text: "Your score:"
+                font_size: root.width/13
+            GridLayout:
+                rows: 1
+                
+                Label:
+                    font_size: root.width/13
+                    size_hint_x: 0.3
+                    text: ""
+                Label:
+                    font_size: root.width/13
+                    text: ""
+                    id: score
+                Label:
+                    font_size: root.width/13
+                    size_hint_x: 0.3
+                    text: ""
+        
+        ScoreGrid:
+            cols:1          
+
+            BorderedLabel:
+                size_hint_y: 0.1
+                text:"Highscores: "
+                font_size: root.width/13
+            ScrollView:
+                do_scroll_x: False
+                do_scroll_y: True
+                GridLayout:
+                    id: score_grid
+                    cols:1
+                    size_hint_y: None
+                    row_default_height: root.height/10
+                    height: self.minimum_height
+                    
+                    
+
+<PersonalGrid2@GridLayout>
+    rows: 1
+    canvas.before:
+        Color: 
+            rgb: [76/255, 76/255, 76/255, 1]
+        Rectangle:
+            size: self.size
+            pos: self.pos
+<PersonalGrid1@GridLayout>
+    rows: 1
+    canvas.before:
+        Color: 
+            rgb: [86/255, 86/255, 86/255, 1]
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<BorderedLabel@Label>
+    color: 1, 1, 1, 1
+    font_size: 32
+    padding: 10
+    text_size: self.size
+    halign: 'left'
+    valign: 'middle' 
+    canvas.after:
+        Color:
+            rgba:(160/225, 160/225, 160/225, 1)
+        Line:
+            width: 1
+            rectangle: (self.pos[0], self.pos[1], self.size[0], self.size[1])
+
+<ScoreGrid@GridLayout>
+    canvas.after:
+        Color:
+            rgba:(160/225, 160/225, 160/225, 1)
+        Line:
+            width: 1
+            rectangle: (self.pos[0], self.pos[1], self.size[0], self.size[1])
